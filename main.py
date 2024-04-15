@@ -1,6 +1,7 @@
 import math
 import sys
 from PyQt6.QtCore import Qt
+from PyQt6.QtGui import QDoubleValidator
 from PyQt6.QtWidgets import QApplication, QFrame
 from FGC_gui import Ui_Frame
 
@@ -17,11 +18,14 @@ class Window(QFrame):
         self.ui.title_bar.mousePressEvent = self.mouse_press_event
         self.ui.title_bar.mouseMoveEvent = self.mouse_move_event
         self.ui.title_bar.mouseReleaseEvent = self.mouse_release_event
+        self.ui.MWEntry.setValidator(QDoubleValidator())
 
         self.ui.CloseButton.clicked.connect(self.close)
         self.ui.MinButton.clicked.connect(self.showMinimized)
 
         self.ui.CalculateButton.clicked.connect(self.Calculate)
+
+
 
 
     def Calculate(self):
